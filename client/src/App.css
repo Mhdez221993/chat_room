@@ -85,6 +85,7 @@ h1 {
   height: 100%;
   width: 15%;
   border: none;
+  border-bottom: 1px solid rgb(15, 21, 54);
 }
 
 .aling-right {
