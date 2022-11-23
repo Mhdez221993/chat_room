@@ -6,9 +6,14 @@ export default function Chat({username, room, socket}) {
   const sendMessage = () => {
     if (message !== '')  {
       const data = {
-        username,
         room,
         message,
+        author: username,
+        date:
+          new Date(Date.now()).getHours()
+          +':'+
+          new Date(Date.now()).getMinutes()
+
       }
 
       socket.emit('send_message', data);
