@@ -2,6 +2,7 @@ import { useState } from "react";
 
 export default function Chat({username, room, socket}) {
   const [message, setMessage] = useState('');
+  const [messageList, setMessageList] = useState([]);
 
   const sendMessage = () => {
     if (message !== '')  {
@@ -17,6 +18,7 @@ export default function Chat({username, room, socket}) {
       }
 
       socket.emit('send_message', data);
+      setMessageList((list) => [...list, data]);
       setMessage('')
     }
   }
@@ -27,7 +29,27 @@ export default function Chat({username, room, socket}) {
         <h2>chat room</h2>
       </div>
 
-      <div className="chat-body"></div>
+      <div className="chat-body">
+        {
+          messageList.map(({author, date, message}, i) => {
+            const alingText = author === username ? 'aling-right' : 'aling-left'
+
+            return (
+              <div className={alingText} key={i}>
+                <div>
+                  <div className="message-content">
+                    <p>{message}</p>
+                  </div>
+                  <div className="message-meta">
+                    <p>{author}</p>
+                    <p className="author">{date}</p>
+                  </div>
+                </div>
+              </div>
+            )
+          })
+        }
+      </div>
 
       <div className="chat-footer">
         <input
