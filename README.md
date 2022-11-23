@@ -1,7 +1,7 @@
 # Live Chat App
 
 ## Install and run the chat app
-`git clone https://github.com/Mhdez221993/chat_room`
+`git git@github.com:Mhdez221993/chat_room.git`
 <br />
 `cd server && npm install`
 <br />
