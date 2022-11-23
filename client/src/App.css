@@ -1,0 +1,127 @@
+* {
+  box-sizing: border-box;
+  font-family: inherit;
+  font-weight: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-weight: bold;
+}
+
+h1 {
+  padding: 20px;
+}
+
+.App {
+  width: 400px;
+  margin: 0 auto;
+  text-align: center;
+  margin-top: 100px;
+}
+
+.join-room-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.join-input {
+  height: 40px;
+  margin-bottom: 20px;
+  border: 1px solid rgb(75, 184, 142);
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 18px;
+}
+
+.join-button {
+  height: 45px;
+  border-radius: 5px;
+  border: 1px solid rgb(123, 170, 144);
+  background-color: rgb(106, 224, 169);
+  font-size: 20px;
+  color: rgb(49, 49, 48);
+}
+
+.live-chat {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgb(15, 21, 54);
+  border-radius: 5px 5px 0 0;
+}
+
+.chat-header {
+  width: 100%;
+  padding: 10px;
+  text-align: left;
+  background-color: rgb(15, 21, 54);
+  color: rgb(218, 224, 230);
+  border-radius: 5px 5px 0 0;
+}
+
+.chat-body {
+  height: 300px;
+  border-bottom: 1px solid rgb(15, 21, 54);
+  padding: 20px;
+  font-size: 14px;
+}
+
+.chat-footer {
+  height: 45px;
+}
+
+.chat-input {
+  width: 85%;
+  height: 100%;
+  padding: 10px;
+  border: none;
+  border-right: 1px solid rgb(15, 21, 54);
+  outline: none;
+}
+
+.chat-send {
+  height: 100%;
+  width: 15%;
+  border: none;
+}
+
+.aling-right {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.aling-left {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.message-content {
+  background-color: rgb(74, 179, 74);
+  padding: 5px 20px;
+  border-radius: 7px;
+  color: rgb(250, 252, 253);
+}
+
+.message-meta {
+  display: flex;
+  font-size: 12px;
+  color: #555;
+}
+
+.author {
+  font-size: 10px;
+  margin-left: 10px;
+}
+
+.aling-right > div > .message-content {
+  background-color: rgb(71, 154, 248);
+}
+
+.message-container {
+  width: 100%;
+  height: 100%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
