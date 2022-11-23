@@ -47,7 +47,7 @@ function App() {
       </div>
 
       :
-        <Chat room={room} username={username} />
+        <Chat room={room} username={username} socket={socket} />
       }
 
     </div>
