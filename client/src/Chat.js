@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ScrollToBottom from 'react-scroll-to-bottom';
 
 export default function Chat({username, room, socket}) {
@@ -23,6 +23,12 @@ export default function Chat({username, room, socket}) {
       setMessage('')
     }
   }
+
+  useEffect(() => {
+    socket.on('receive_message', (data) => {
+      setMessageList((list) => [...list, data])
+    })
+  }, [socket])
 
   return (
     <div className='live-chat'>
