@@ -1,4 +1,5 @@
 import { useState } from "react";
+import ScrollToBottom from 'react-scroll-to-bottom';
 
 export default function Chat({username, room, socket}) {
   const [message, setMessage] = useState('');
@@ -30,25 +31,27 @@ export default function Chat({username, room, socket}) {
       </div>
 
       <div className="chat-body">
-        {
-          messageList.map(({author, date, message}, i) => {
-            const alingText = author === username ? 'aling-right' : 'aling-left'
+        <ScrollToBottom className='scroll'>
+          {
+            messageList.map(({author, date, message}, i) => {
+              const alingText = author === username ? 'aling-right' : 'aling-left'
 
-            return (
-              <div className={alingText} key={i}>
-                <div>
-                  <div className="message-content">
-                    <p>{message}</p>
-                  </div>
-                  <div className="message-meta">
-                    <p>{author}</p>
-                    <p className="author">{date}</p>
+              return (
+                <div className={alingText} key={i}>
+                  <div>
+                    <div className="message-content">
+                      <p>{message}</p>
+                    </div>
+                    <div className="message-meta">
+                      <p>{author}</p>
+                      <p className="author">{date}</p>
+                    </div>
                   </div>
                 </div>
-              </div>
-            )
-          })
-        }
+              )
+            })
+          }
+        </ScrollToBottom>
       </div>
 
       <div className="chat-footer">
