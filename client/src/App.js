@@ -1,22 +1,27 @@
 import { useState } from 'react';
 import io from 'socket.io-client';
 import './App.css';
+import Chat from './Chat';
 
 const socket = io.connect('http://localhost:3001');
 
 function App() {
   const [username, setUsername] = useState('');
   const [room, setSRoom] = useState('');
+  const [joined, setJoined] = useState(false);
 
   const joinRoom = () => {
     if (username !== '' && room !== '') {
-      socket.emit('join_room', room)
+      socket.emit('join_room', room);
+      setJoined(true);
     }
   }
 
   return (
     <div className="App">
-      <div className="join-room-wrapper">
+      { !joined ?
+
+        <div className="join-room-wrapper">
         <h1>LIVE CHAT</h1>
         <input
           value={username}
@@ -40,6 +45,11 @@ function App() {
         >
           Join room</button>
       </div>
+
+      :
+        <Chat room={room} username={username} />
+      }
+
     </div>
   );
 }
